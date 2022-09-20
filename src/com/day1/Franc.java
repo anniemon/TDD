@@ -2,9 +2,9 @@ package com.day1;
 
 public class Franc extends Money{
     Money times(int multiplier){
-        return new Franc(amount * multiplier);
+        return Money.franc(amount*multiplier);
     }
-    Franc(int amount) {
-        this.amount = amount;
+    Franc(int amount, String currency) {
+        super(amount, currency);
     }
 }
