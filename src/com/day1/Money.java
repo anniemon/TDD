@@ -1,11 +1,11 @@
 package com.day1;
 
-abstract class Money {
+class Money {
     protected int amount;
 
     public boolean equals(Object object) {
         Money money = (Money) object;
-        return amount == money.amount && getClass().equals(money.getClass());
+        return amount == money.amount && currency().equals(money.currency());
     }
 
     protected String currency;
@@ -23,5 +23,12 @@ abstract class Money {
     static Money franc(int amount) {
         return new Franc(amount, "CHF");
     }
-    abstract Money times(int multiplier);
+
+    Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    }
+
+    public String toString() {
+        return amount + " " + currency;
+    }
 }
