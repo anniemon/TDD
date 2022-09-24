@@ -14,10 +14,15 @@ class FrancTest {
 
     @Test
     public void testEquality() {
-        assertTrue(Money.dollar(5).equals(Money.dollar(5)));
-        assertFalse(Money.dollar(5).equals(Money.dollar(6)));
-        assertTrue(Money.franc(5).equals(Money.franc(5)));
-        assertFalse(Money.franc(5).equals(Money.franc(6)));
-        assertFalse(Money.franc(5).equals(Money.dollar(5)));
+        assertEquals(Money.dollar(5), Money.dollar(5));
+        assertNotEquals(Money.dollar(5), Money.dollar(6));
+        assertEquals(Money.franc(5), Money.franc(5));
+        assertNotEquals(Money.franc(5), Money.franc(6));
+        assertNotEquals(Money.franc(5), Money.dollar(5));
+    }
+
+    @Test
+    public void testDifferentClassEquality() {
+        assertEquals(new Money(10, "CHF"), new Franc(10, "CHF"));
     }
 }
