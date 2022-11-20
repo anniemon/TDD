@@ -1,6 +1,7 @@
 package com.day1;
 
-class Money {
+interface Expression {}
+class Money implements  Expression {
     protected int amount;
 
     public boolean equals(Object object) {
@@ -30,5 +31,15 @@ class Money {
 
     public String toString() {
         return amount + " " + currency;
+    }
+
+    Expression plus(Money addend) {
+        return new Money(amount + addend.amount, currency);
+    }
+}
+
+class Bank {
+    Money reduce(Expression source, String to) {
+        return Money.dollar((10));
     }
 }
